@@ -9,16 +9,20 @@
         "copilot",
         "opencode"
     ],
+    "cloud": true,
     "guidelines": true,
     "mcp": true,
     "nightwatch_mcp": false,
-    "packages": [
-        "laravel/fortify"
-    ],
     "sail": false,
     "skills": [
+        "infer-conventions",
+        "deploying-to-cloud",
+        "fortify-development",
         "laravel-best-practices",
+        "testing-best-practices",
         "wayfinder-development",
-        "fortify-development"
+        "telescope-debugging",
+        "inertia-vue-development",
+        "tailwindcss-development"
     ]
 }
