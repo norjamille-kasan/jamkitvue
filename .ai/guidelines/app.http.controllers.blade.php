@@ -1,13 +1,13 @@
 # App/Http/Controllers guidelines
 
 - Controllers are CRUD by design: their only public methods are `index`, `create`, `store`, `show`, `edit`, `update`, and `destroy`.
-- Never add a custom method (`approve`, `pin`, `follow`, `export`, `markAsRead`). Instead, find the resource being created, updated, or deleted, and give it its own controller:
-  - Approving a commit → `CommitApprovalController@store`. Rejecting it → `CommitRejectionController@store`.
-  - Pinning a commit → `CommitPinController@update`. Unpinning it → `CommitPinController@destroy`.
-  - Following a user → `UserFollowController@store`. Unfollowing → `UserFollowController@destroy`.
-  - Approving the selected commits in the moderation queue → `ModerationController@update`.
+- Never add a custom method (`approve`, `pin`, `hold`, `export`, `fulfil`). Instead, find the resource being created, updated, or deleted, and give it its own controller:
+  - Approving an order → `OrderApprovalController@store`. Rejecting it → `OrderRejectionController@store`.
+  - Pinning an order → `OrderPinController@update`. Unpinning it → `OrderPinController@destroy`.
+  - Holding an order → `OrderHoldController@store`. Releasing it → `OrderHoldController@destroy`.
+  - Approving the selected orders in the fulfilment queue → `FulfilmentController@update`.
 - When an endpoint really does not fit CRUD, that is the sign to use an invokable controller with a single `__invoke()` method, named after the thing, minimally: `ExportController`, not `PersonalDataExportController` or `ExportPersonalDataController`.
-- Controller names are nouns, never verbs: `CommitStarController`, not `StarCommitController`.
+- Controller names are nouns, never verbs: `OrderStarController`, not `StarOrderController`.
 - Controllers stay thin: resolve the form request, call one action (or query), and return a response.
 - Controllers never authorize or validate anything: no `abort()`, `abort_if()`, `abort_unless()`, `throw_if()`, `throw_unless()`, `$request->validate()`, `Validator::make()`, or `ValidationException`. Every check lives in the form request of that endpoint.
 - `tests/Unit/ArchTest.php` enforces this.
@@ -19,27 +19,27 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Actions\CreateCommitStar;
-use App\Actions\DeleteCommitStar;
-use App\Http\Requests\CreateCommitStarRequest;
-use App\Http\Requests\DeleteCommitStarRequest;
-use App\Models\Commit;
+use App\Actions\CreateOrderStar;
+use App\Actions\DeleteOrderStar;
+use App\Http\Requests\CreateOrderStarRequest;
+use App\Http\Requests\DeleteOrderStarRequest;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\RedirectResponse;
 
-final readonly class CommitStarController
+final readonly class OrderStarController
 {
-    public function store(CreateCommitStarRequest $request, #[CurrentUser] User $user, Commit $commit, CreateCommitStar $action): RedirectResponse
+    public function store(CreateOrderStarRequest $request, #[CurrentUser] User $user, Order $order, CreateOrderStar $action): RedirectResponse
     {
-        $action->handle($user, $commit);
+        $action->handle($user, $order);
 
         return back();
     }
 
-    public function destroy(DeleteCommitStarRequest $request, #[CurrentUser] User $user, Commit $commit, DeleteCommitStar $action): RedirectResponse
+    public function destroy(DeleteOrderStarRequest $request, #[CurrentUser] User $user, Order $order, DeleteOrderStar $action): RedirectResponse
     {
-        $action->handle($user, $commit);
+        $action->handle($user, $order);
 
         return back();
     }

@@ -16,16 +16,16 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-final readonly class CreateFavorite
+final readonly class CreateOrder
 {
-    public function __construct(private FavoriteService $favorites)
+    public function __construct(private OrderService $orders)
     {
         //
     }
 
-    public function handle(User $user, string $favorite): bool
+    public function handle(User $user, string $reference): bool
     {
-        return $this->favorites->add($user, $favorite);
+        return $this->orders->place($user, $reference);
     }
 }
 @endboostsnippet

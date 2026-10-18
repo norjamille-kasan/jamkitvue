@@ -12,10 +12,10 @@ Every UI change keeps the layout still. Nothing may flash, jump, clip or reflow 
 ## Changing content
 
 - Numbers, counts and countdowns use `tabular-nums` in fixed-width slots.
-- Buttons whose label changes ("Following", "Committing…") get a `min-w`. Disabled, loading and enabled states are the same size.
+- Buttons whose label changes ("Place order", "Placing…") get a `min-w`. Disabled, loading and enabled states are the same size.
 - Conditional UI (banners, "@x is reviewing", inline confirms, errors) reserves its space or overlays. An inline confirm fits in the slot of the control it replaces.
-- Removed list rows collapse with the existing commit-deletion animation, keeping scroll position and focus.
-- Right after an action, the control under the cursor must not flip to a destructive state, e.g. Follow → "Unfollow" before the pointer leaves.
+- Removed list rows collapse with the existing order-deletion animation, keeping scroll position and focus.
+- Right after an action, the control under the cursor must not flip to a destructive state, e.g. "Place order" → "Cancel order" before the pointer leaves.
 
 ## Overflow
 
