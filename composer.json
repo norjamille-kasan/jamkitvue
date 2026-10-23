@@ -1,13 +1,23 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "nunomaduro/laravel-starter-kit-inertia-vue",
+    "name": "norjamille-kasan/jamkitvue",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "An ultra-strict, type-safe Laravel starter kit with Inertia and Vue.",
     "keywords": [
         "laravel",
-        "framework"
+        "framework",
+        "starter-kit",
+        "inertia",
+        "vue",
+        "template"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Jam",
+            "email": "jamclong0328@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.5.0",
         "inertiajs/inertia-laravel": "^3.5.1",

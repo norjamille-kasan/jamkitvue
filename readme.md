@@ -1,26 +1,12 @@
-- Inertia & Vue (this project) version: **[github.com/nunomaduro/laravel-starter-kit-inertia-vue](https://github.com/nunomaduro/laravel-starter-kit-inertia-vue)**
-- Inertia & React version: **[github.com/nunomaduro/laravel-starter-kit-inertia-react](https://github.com/nunomaduro/laravel-starter-kit-inertia-react)**
-- Blade version: **[github.com/nunomaduro/laravel-starter-kit](https://github.com/nunomaduro/laravel-starter-kit)**
+# Jamkit Vue
 
-<p align="center">
-    <a href="https://youtu.be/VhzP0XWGTC4" target="_blank">
-        <img src="https://github.com/nunomaduro/laravel-starter-kit/blob/main/art/banner.png" alt="Overview Laravel Starter Kit" style="width:70%;">
-    </a>
-</p>
+**Jamkit Vue** is an ultra-strict, type-safe [Laravel](https://laravel.com) starter kit built with [Inertia](https://inertiajs.com) and [Vue](https://vuejs.org), for developers who refuse to compromise on code quality. It is a repository template: clone it, run the setup, and start building.
 
-<p>
-    <a href="https://github.com/nunomaduro/laravel-starter-kit-inertia-vue/actions"><img src="https://github.com/nunomaduro/laravel-starter-kit-inertia-vue/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/dt/nunomaduro/laravel-starter-kit-inertia-vue" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/v/nunomaduro/laravel-starter-kit-inertia-vue" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/l/nunomaduro/laravel-starter-kit-inertia-vue" alt="License"></a>
-    <a href="https://youtube.com/@nunomaduro?sub_confirmation=1"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCO_hYZF2gb_CyG5sA7ArlGg?style=flat&label=youtube&color=brightgreen"></a>
-</p>
+It descends from the [Laravel Starter Kit (Inertia & Vue)](https://github.com/nunomaduro/laravel-starter-kit-inertia-vue) by [Nuno Maduro](https://x.com/enunomaduro) — see [Credits](#credits).
 
-**Laravel Starter Kit (Inertia & Vue)** is an ultra-strict, type-safe [Laravel](https://laravel.com) skeleton engineered for developers who refuse to compromise on code quality. This opinionated starter kit enforces rigorous development standards through meticulous tooling configuration and architectural decisions that prioritize type safety, immutability, and fail-fast principles.
+## What's Inside?
 
-## Why This Starter Kit?
-
-Modern PHP has evolved into a mature, type-safe language, yet many Laravel projects still operate with loose conventions and optional typing. This starter kit changes that paradigm by enforcing:
+Modern PHP has evolved into a mature, type-safe language, yet many Laravel projects still operate with loose conventions and optional typing. This starter kit enforces:
 
 - **Fully Actions-Oriented Architecture**: Every operation is encapsulated in a single-action class
 - **Cruddy by Design**: Standardized CRUD operations for all controllers, actions, and Inertia & Vue pages
@@ -29,30 +15,27 @@ Modern PHP has evolved into a mature, type-safe language, yet many Laravel proje
 - **Immutable-First Architecture**: Data structures favor immutability to prevent unexpected mutations
 - **Fail-Fast Philosophy**: Errors are caught at compile-time, not runtime
 - **Automated Code Quality**: Pre-configured tools ensure consistent, pristine code across your entire team
-- **Bun-Powered**: Leveraging Bun for blazing-fast dependency management...
-- **Just Better Laravel Defaults**: Thanks to **[Essentials](https://github.com/nunomaduro/essentials)** / strict models, auto eager loading, immutable dates, and more...
+- **Bun-Powered**: Leveraging Bun for blazing-fast dependency management
+- **Just Better Laravel Defaults**: Thanks to **[Essentials](https://github.com/nunomaduro/essentials)** / strict models, auto eager loading, immutable dates, and more
 - **AI Guidelines**: Integrated AI Guidelines to assist in maintaining code quality and consistency
 - **Full Testing Suite**: More than 150 tests with 100% code coverage using Pest
--
-This isn't just another Laravel boilerplate—it's a statement that PHP applications can and should be built with the same rigor as strongly-typed languages like Rust or TypeScript.
 
 ## Getting Started
 
 > **Requires [PHP 8.5+](https://php.net/releases/), [Bun](https://bun.sh) and a code coverage driver like [xdebug](https://xdebug.org/docs/install)**.
 
-Create your type-safe Laravel application using [Composer](https://getcomposer.org):
+Create your application from this template with the **Use this template** button on GitHub, or clone it directly:
 
 ```bash
-composer create-project nunomaduro/laravel-starter-kit-inertia-vue --prefer-dist example-app
+git clone https://github.com/norjamille-kasan/jamkitvue.git example-app
+cd example-app
 ```
 
 ### Initial Setup
 
-Navigate to your project and complete the setup:
+Complete the setup inside the project:
 
 ```bash
-cd example-app
-
 # Setup the project
 composer setup
 
@@ -85,21 +68,29 @@ You should see 100% test coverage and all quality checks passing.
 ## Available Tooling
 
 ### Development
+
 - `composer dev` - Starts Laravel server, queue worker, log monitoring, and Vite+ dev server concurrently
 
 ### Code Quality
+
 - `composer lint` - Runs Rector (refactoring), Pint (PHP formatting), and Oxfmt (JS/TS formatting)
 - `composer test:lint` - Dry-run mode for CI/CD pipelines
 
 ### Testing
+
 - `composer test:type-coverage` - Ensures 100% type coverage with Pest
 - `composer test:types` - Runs PHPStan at level 9 (maximum strictness)
 - `composer test:unit` - Runs Pest tests with 100% code coverage requirement
 - `composer test` - Runs the complete test suite (linting, static analysis, type coverage, unit tests)
 
 ### Maintenance
+
 - `composer update:requirements` - Updates all PHP and Bun dependencies to latest versions
+
+## Credits
+
+This template is based on the [Laravel Starter Kit (Inertia & Vue)](https://github.com/nunomaduro/laravel-starter-kit-inertia-vue) created by **[Nuno Maduro](https://x.com/enunomaduro)**. The original architecture, tooling configuration, and guidelines are his work; this repository carries my own branding and adjustments on top of it.
 
 ## License
 
-**Laravel Starter Kit Inertia Vue** was created by **[Nuno Maduro](https://x.com/enunomaduro)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+**Jamkit Vue** is open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**. See [LICENSE](LICENSE) for the full text and copyright notices.
